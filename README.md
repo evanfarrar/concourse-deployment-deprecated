@@ -2,8 +2,8 @@
 An IaaS agnostic general purpose concourse manifest leveraging BOSH 2.0 features
 
 ## Pre-requisites
-  * (bosh bootloader)[https://github.com/cloudfoundry/bosh-bootloader]
-  * An director created with bbl + loadbalancers created by bbl
+  * [bosh bootloader](https://github.com/cloudfoundry/bosh-bootloader])
+  * A director created with bbl + loadbalancers created by bbl
   * A stemcell on that director
   
 ## Usage
