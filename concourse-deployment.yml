@@ -17,6 +17,23 @@ stemcells:
   version: latest
 
 instance_groups:
+
+- name: db
+  instances: 1
+  vm_type: default
+  stemcell: trusty
+  persistent_disk_type: 1GB
+  azs: [z1]
+  networks: [{name: private}]
+  jobs:
+  - name: postgresql
+    release: concourse
+    properties:
+      databases:
+      - name: "((database_name))"
+        role: "((database_username))"
+        password: "((database_password))"
+
 - name: web
   instances: 1
   vm_type: default
@@ -37,22 +54,6 @@ instance_groups:
   - name: tsa
     release: concourse
     properties: {}
-
-- name: db
-  instances: 1
-  vm_type: default
-  stemcell: trusty
-  persistent_disk_type: 1GB
-  azs: [z1]
-  networks: [{name: private}]
-  jobs:
-  - name: postgresql
-    release: concourse
-    properties:
-      databases:
-      - name: "((database_name))"
-        role: "((database_username))"
-        password: "((database_password))"
 
 - name: worker
   instances: 1
@@ -79,9 +80,9 @@ instance_groups:
 update:
   canaries: 1
   max_in_flight: 1
-  serial: false
+  serial: true
   canary_watch_time: 1000-60000
-  update_watch_time: 1000-60000
+  update_watch_time: 1000-90000
 
 variables: 
 - name: basic_auth_username
