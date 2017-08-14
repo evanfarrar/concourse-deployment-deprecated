@@ -56,10 +56,10 @@ instance_groups:
     properties: {}
 
 - name: worker
-  instances: 1
+  instances: 2
   vm_type: default
   vm_extensions:
-  - 5GB_ephemeral_disk
+  - 100GB_ephemeral_disk
   stemcell: trusty
   azs: [z1]
   networks: [{name: private}]
