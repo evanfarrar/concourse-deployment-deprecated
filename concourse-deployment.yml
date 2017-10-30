@@ -45,8 +45,7 @@ instance_groups:
   - name: atc
     release: concourse
     properties:
-      external_url: "https://((domain))"
-
+      external_url: "https://((system_domain))"
       basic_auth_username: "((basic_auth_username))"
       basic_auth_password: "((basic_auth_password))"
       postgresql_database: "((database_name))"
@@ -83,7 +82,7 @@ update:
   canary_watch_time: 1000-60000
   update_watch_time: 1000-90000
 
-variables: 
+variables:
 - name: basic_auth_username
   type: password
 - name: basic_auth_password
