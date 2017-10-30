@@ -12,16 +12,15 @@ releases:
   sha1: 18366fade5189aa563b4787db3ef3b4376d4e76c
 
 stemcells:
-- alias: trusty
+- alias: default
   os: ubuntu-trusty
   version: latest
 
 instance_groups:
-
 - name: db
   instances: 1
   vm_type: default
-  stemcell: trusty
+  stemcell: default
   persistent_disk_type: 1GB
   azs: [z1]
   networks: [{name: private}]
@@ -39,7 +38,7 @@ instance_groups:
   vm_type: default
   vm_extensions:
   - lb
-  stemcell: trusty
+  stemcell: default
   azs: [z1]
   networks: [{name: private}]
   jobs:
@@ -60,7 +59,7 @@ instance_groups:
   vm_type: default
   vm_extensions:
   - 100GB_ephemeral_disk
-  stemcell: trusty
+  stemcell: default
   azs: [z1]
   networks: [{name: private}]
   jobs:
