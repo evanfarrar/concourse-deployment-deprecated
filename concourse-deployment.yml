@@ -7,9 +7,9 @@ releases:
   url: https://bosh.io/d/github.com/concourse/concourse?v=3.6.0
   sha1: 1257bdcd3181ab0a669bc9e34cd87aff584f007b
 - name: garden-runc
-  version: 1.7.0
-  url: https://bosh.io/d/github.com/cloudfoundry/garden-runc-release?v=1.7.0
-  sha1: 18366fade5189aa563b4787db3ef3b4376d4e76c
+  version: 1.10.0
+  url: https://bosh.io/d/github.com/cloudfoundry/garden-runc-release?v=1.10.0
+  sha1: 9c2ad4a961db49a5349a26d4240b8f8b9b54af88
 
 stemcells:
 - alias: default
