@@ -4,10 +4,13 @@
 - type: remove
   path: /instance_groups/name=web
 
+- type: remove
+  path: /instance_groups/name=worker
+
 - type: replace
-  path: /instance_groups/name=worker?
+  path: /instance_groups/-
   value:
-  - name: worker
+    name: worker
     instances: 1
     vm_type: default
     vm_extensions:
@@ -16,7 +19,7 @@
     azs:
     - z1
     networks:
-    - name: private
+    - name: default
     jobs:
     - name: groundcrew
       release: concourse
