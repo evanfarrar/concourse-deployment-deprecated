@@ -1,0 +1,47 @@
+- type: remove
+  path: /instance_groups/name=db
+
+- type: remove
+  path: /instance_groups/name=web
+
+- type: replace
+  path: /instance_groups/name=worker?
+  value:
+  - name: worker
+    instances: 1
+    vm_type: default
+    vm_extensions:
+    - 100GB_ephemeral_disk
+    stemcell: default
+    azs:
+    - z1
+    networks:
+    - name: private
+    jobs:
+    - name: groundcrew
+      release: concourse
+      properties:
+        tags: ((external_worker_tags))
+        garden:
+          forward_address: 127.0.0.1:7777
+        baggageclaim:
+          forward_address: 127.0.0.1:7788
+        tsa:
+          host: ((tsa_host))
+          host_public_key: ((tsa.public_key))
+          private_key: ((tsa.private_key))
+    - name: baggageclaim
+      release: concourse
+      properties: {}
+    - name: garden
+      release: garden-runc
+      properties:
+        garden:
+          listen_network: tcp
+          listen_address: 0.0.0.0:7777
+
+- type: replace
+  path: /variables/-
+  value:
+    name: tsa
+    type: ssh
