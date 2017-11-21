@@ -3,9 +3,9 @@ name: concourse
 
 releases:
 - name: concourse
-  version: 3.0.1
-  url: https://bosh.io/d/github.com/concourse/concourse?v=3.0.1
-  sha1: ade4f7b6a939d3a47590006410aa89f69b4dbd1f
+  version: 3.6.0
+  url: https://bosh.io/d/github.com/concourse/concourse?v=3.6.0
+  sha1: 1257bdcd3181ab0a669bc9e34cd87aff584f007b
 - name: garden-runc
   version: 1.7.0
   url: https://bosh.io/d/github.com/cloudfoundry/garden-runc-release?v=1.7.0
