@@ -4,11 +4,8 @@
 - type: remove
   path: /instance_groups/name=web
 
-- type: remove
-  path: /instance_groups/name=worker
-
 - type: replace
-  path: /instance_groups/-
+  path: /instance_groups/name=worker
   value:
     name: worker
     instances: 1
