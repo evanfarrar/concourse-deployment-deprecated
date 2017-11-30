@@ -49,6 +49,10 @@ instance_groups:
       basic_auth_username: "((basic_auth_username))"
       basic_auth_password: "((basic_auth_password))"
       postgresql_database: "((database_name))"
+      tls_cert: "((atc.certificate))"
+      tls_key: "((atc.private_key))"
+      tls_bind_port: 443
+      bind_port: 80
   - name: tsa
     release: concourse
     properties: {}
